@@ -6,7 +6,7 @@ from database import SessionLocal  # Это твоя сессия
 from sqlalchemy.orm import Session
 from datetime import date
 from models import Product
-
+from products.views import router as products_router
 
 def get_db():
     db = SessionLocal()  # Создаем объект сессии
@@ -16,7 +16,7 @@ def get_db():
         db.close()  # Закрываем сессию после использования
 
 app = FastAPI()
-
+app.include_router(products_router, )
 @app.get("/")
 async def root():
     return {"message": "Hello World"}
@@ -25,16 +25,6 @@ async def root():
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
-
-@app.get("/products")
-def read_users(db: Session = Depends(get_db)):
-    return db.query(Product).all()
-
-class products(BaseModel):
-    id:int
-    name:str
-    description: str
-    price: int
 
 # @app.get('/add/products')
 # def add_products(Product: products):
