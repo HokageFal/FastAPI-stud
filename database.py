@@ -31,5 +31,5 @@ async def get_db():
         yield session
 
 
-SECRET_KEY="b1bb3d1490b0e1eecbbbdc448200064e6d5b84f2fe21ee3cefa94aa864598527"
+SECRET_KEY = "b1bb3d1490b0e1eecbbbdc448200064e6d5b84f2fe21ee3cefa94aa864598527"
 ALGORITHM = 'HS256'

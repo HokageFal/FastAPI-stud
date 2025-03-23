@@ -1,6 +1,8 @@
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Text, Integer, DateTime, ForeignKey, Boolean
 from datetime import datetime
+
+from channels.models import Channel
 from database import Base
 
 class Users(Base):
@@ -13,3 +15,5 @@ class Users(Base):
     is_admin: Mapped[bool] = mapped_column(Boolean, default=False)
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
     password: Mapped[str] = mapped_column(String(255), nullable=False)
+
+    channels: Mapped[list["Channel"]] = relationship("Channel", back_populates="owner")
