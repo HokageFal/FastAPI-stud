@@ -26,3 +26,10 @@ class Post(Base):
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())
 
     channel: Mapped["Channel"] = relationship("Channel",  back_populates="posts")
+
+class Subscription(Base):
+    __tablename__ = "subscription"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    channel_id: Mapped[int] = mapped_column(Integer, ForeignKey("channels.id"), nullable=False)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
