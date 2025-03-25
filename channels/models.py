@@ -33,3 +33,12 @@ class Subscription(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     channel_id: Mapped[int] = mapped_column(Integer, ForeignKey("channels.id"), nullable=False)
     user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+
+class Comment(Base):
+    __tablename__ = "comments"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+    comment: Mapped[str] = mapped_column(Text)
+    post_id: Mapped[int] = mapped_column(Integer, ForeignKey("post.id"), nullable=False)
+    parent_id: Mapped[int] = mapped_column(Integer, ForeignKey("comments.id"), nullable=True)
