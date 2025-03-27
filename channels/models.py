@@ -2,6 +2,7 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Text, Integer, DateTime, ForeignKey, Boolean
 from datetime import datetime
 from database import Base
+from shop.products.services import product_by_category
 
 
 class Channel(Base):
@@ -42,3 +43,10 @@ class Comment(Base):
     comment: Mapped[str] = mapped_column(Text)
     post_id: Mapped[int] = mapped_column(Integer, ForeignKey("post.id"), nullable=False)
     parent_id: Mapped[int] = mapped_column(Integer, ForeignKey("comments.id"), nullable=True)
+
+class Likes(Base):
+    __tablename__ = "likes"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    user_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+    post_id: Mapped[int] = mapped_column(Integer, ForeignKey("post.id"), nullable=False)

@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from channels.schemas.comment import comments
 from channels.services.channels_service import create_channel, subscribe, subs_channels, unsubscribe
 from channels.services.comments_service import add_comment, get_comments_post, delete_comment
+from channels.services.likes_service import add_like, get_like
 from channels.services.posts_service import new_post, all_post, get_post, post_to_channel, subs_posts
 from database import get_db
 
@@ -67,3 +68,11 @@ async def comments_for_post(post_id: int, db: AsyncSession = Depends(get_db)):
 @router.delete("/comments/delete/{id}")
 async def comments_delete_post(id: int, db: AsyncSession = Depends(get_db), user: dict = Depends(is_autorization)):
     return await delete_comment(id=id, db=db, user=user)
+
+@router.post("/add_like/{post_id}")
+async def post_like(post_id: int, db: AsyncSession = Depends(get_db), user: dict = Depends(is_autorization)):
+    return await add_like(post_id=post_id, db=db, user=user)
+
+@router.get("/likes/{post_id}")
+async def likes_post(post_id: int, db: AsyncSession = Depends(get_db)):
+    return await get_like(db=db, post_id=post_id)

@@ -47,3 +47,4 @@ async def delete_comment(db: AsyncSession, id: int, user: dict):
     await db.delete(comment)
     await db.commit()
     return {"message": "Комментарий успешно удален"}
+
