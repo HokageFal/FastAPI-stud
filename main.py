@@ -8,6 +8,6 @@ app = FastAPI()
 
 app.include_router(products_router, )
 app.include_router(category_router, )
-app.include_router(users_router, )
+
 app.include_router(channels_router, )
 ALGORITHM = 'HS256'
