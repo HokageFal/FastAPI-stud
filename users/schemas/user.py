@@ -1,11 +1,14 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from typing import Optional
 from datetime import datetime
+
 class user(BaseModel):
     name: str
-    surname: Optional[str] = None
-    email: Optional[str] = None
+    surname: str
+    email: EmailStr
     password: str
+    register_data: Optional[datetime] = None  # Теперь не обязательно передавать
+    is_admin: Optional[bool] = False  # По умолчанию False
 
 class user_response(BaseModel):
     name: str
@@ -16,3 +19,4 @@ class user_response(BaseModel):
 
     class Config:
         from_attributes = True
+
