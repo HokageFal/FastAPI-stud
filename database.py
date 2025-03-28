@@ -2,6 +2,14 @@ from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from contextlib import asynccontextmanager
+import redis.asyncio as redis
+import time
+from fastapi import FastAPI
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
+
+
 # Данные для подключения
 MYSQL_USER = "root"
 MYSQL_PASSWORD = "9898"
@@ -30,6 +38,39 @@ async def get_db():
     async with AsyncSessionLocal() as session:
         yield session
 
+import os
+from dotenv import load_dotenv
 
-SECRET_KEY = "b1bb3d1490b0e1eecbbbdc448200064e6d5b84f2fe21ee3cefa94aa864598527"
+# Загружаем переменные окружения из .env файла
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+SENDER_EMAIL = os.getenv("SENDER_EMAIL")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+SMTP_SERVER = "smtp.gmail.com"
+SMTP_PORT = 587
 ALGORITHM = 'HS256'
+
+import redis
+
+# Подключение к Redis
+r = redis.Redis(
+    host="localhost",
+    port=6380,
+    db=0,
+    username="root",
+    password=os.getenv("REDIS_PASSWORD"),
+    # ssl=True,
+    # ssl_cert_reqs=None
+)
+FastAPICache.init(RedisBackend(r), prefix="mycache")
+# Проверка подключения
+try:
+    # Попытка выполнить команду PING
+    response = r.ping()
+    if response:
+        print("Подключение к Redis успешно!")
+    else:
+        print("Не удалось подключиться к Redis.")
+except Exception as e:
+    print(f"Произошла ошибка: {e}")

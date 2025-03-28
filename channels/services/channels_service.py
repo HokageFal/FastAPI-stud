@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
-from sqlalchemy import select, insert
+from sqlalchemy import select, insert, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.models import Channel, Post, Subscription
@@ -56,3 +56,7 @@ async def subs_channels(db: AsyncSession, user: dict):
         raise HTTPException(status_code=404, detail="Нет каналов, на которые вы подписаны")
 
     return channels
+
+async def subs_count(db: AsyncSession, channel_id: int):
+    result = await db.scalar(select(func.count()).filter(Subscription.channel_id==channel_id))
+    return result

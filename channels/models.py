@@ -2,7 +2,6 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy import String, Text, Integer, DateTime, ForeignKey, Boolean
 from datetime import datetime
 from database import Base
-from shop.products.services import product_by_category
 
 
 class Channel(Base):

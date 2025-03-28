@@ -1,10 +1,12 @@
-
-
+import redis.asyncio as redis
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from fastapi_cache.decorator import cache
 from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.schemas.comment import comments
-from channels.services.channels_service import create_channel, subscribe, subs_channels, unsubscribe
+from channels.services.channels_service import create_channel, subscribe, subs_channels, unsubscribe, subs_count
 from channels.services.comments_service import add_comment, get_comments_post, delete_comment
 from channels.services.likes_service import add_like, get_like
 from channels.services.posts_service import new_post, all_post, get_post, post_to_channel, subs_posts
@@ -76,3 +78,8 @@ async def post_like(post_id: int, db: AsyncSession = Depends(get_db), user: dict
 @router.get("/likes/{post_id}")
 async def likes_post(post_id: int, db: AsyncSession = Depends(get_db)):
     return await get_like(db=db, post_id=post_id)
+
+@router.get("/subs/{channel_id}")
+@cache(expire=10)
+async def subs_post(channel_id: int, db: AsyncSession = Depends(get_db)):
+    return await subs_count(db=db, channel_id=channel_id)

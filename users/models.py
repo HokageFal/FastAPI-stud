@@ -13,7 +13,8 @@ class Users(Base):
     surname: Mapped[str] = mapped_column(String(255), nullable=False)
     register_data: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())
     is_admin: Mapped[bool] = mapped_column(Boolean, default=False)
-    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=False)
+    email: Mapped[str] = mapped_column(String(255), unique=True, nullable=True)
     password: Mapped[str] = mapped_column(String(255), nullable=False)
+    is_email_verified: Mapped[bool] = mapped_column(Boolean, default=False)  # Поле для подтверждения почты
 
     channels: Mapped[list["Channel"]] = relationship("Channel", back_populates="owner")

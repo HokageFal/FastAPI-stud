@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
-from sqlalchemy import select, insert
+from sqlalchemy import select, insert, func
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.models import Comment

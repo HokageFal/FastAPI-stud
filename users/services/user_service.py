@@ -10,12 +10,27 @@ import jwt
 
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
+
 async def create_user(db: AsyncSession, users: user):
-    await db.execute(insert(Users).values(name=users.name, surname=users.surname,
-                                         email=users.email, password=bcrypt_context.hash(users.password)))
+    # Проверяем, существует ли пользователь с таким email
+    result = await db.scalars(select(Users).filter(Users.email == users.email))
+    existing_user = result.first()
+
+    if existing_user:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
+                            detail="Пользователь с таким email уже существует")
+
+    # Вставляем нового пользователя в базу данных
+    await db.execute(insert(Users).values(
+        name=users.name,
+        surname=users.surname,
+        email=users.email,
+        password=bcrypt_context.hash(users.password)
+    ))
 
     await db.commit()
-    return  {
+
+    return {
         "status_code": status.HTTP_201_CREATED,
         "transaction": "Ok"
     }
