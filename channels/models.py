@@ -9,6 +9,7 @@ class Channel(Base):
 
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
+    photo: Mapped[str] = mapped_column(String(255), nullable=True)
     description: Mapped[str] = mapped_column(Text)
     register_data: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())
     owner_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)

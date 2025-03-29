@@ -70,7 +70,7 @@ async def verify_email(code: str, email: str, db: AsyncSession, user: dict):
         raise HTTPException(status_code=404, detail="Пользователь не найден")
 
     verify_code = get_confirmation_code(email)
-    print(verify_code)
+
     if not verify_code:
         raise HTTPException(status_code=404, detail="Код не найден")
 

@@ -11,6 +11,7 @@ class Users(Base):
     id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
     name: Mapped[str] = mapped_column(String(255), nullable=False)
     surname: Mapped[str] = mapped_column(String(255), nullable=False)
+    avatar: Mapped[str] = mapped_column(String(255), nullable=True)
     register_data: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())
     is_admin: Mapped[bool] = mapped_column(Boolean, default=False)
     email: Mapped[str] = mapped_column(String(255), unique=True, nullable=True)

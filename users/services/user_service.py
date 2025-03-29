@@ -1,8 +1,8 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
+from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
 from sqlalchemy import select, insert
 from passlib.context import CryptContext
 from sqlalchemy.ext.asyncio import AsyncSession
-from database import SECRET_KEY, ALGORITHM
+from database import SECRET_KEY, ALGORITHM, save_media
 from users.schemas.user import user, user_response
 from users.models import Users
 from datetime import datetime, timedelta
@@ -11,8 +11,8 @@ import jwt
 bcrypt_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
-async def create_user(db: AsyncSession, users: user):
-    # Проверяем, существует ли пользователь с таким email
+async def create_user(db: AsyncSession, users: user, file: UploadFile = None):
+
     result = await db.scalars(select(Users).filter(Users.email == users.email))
     existing_user = result.first()
 
@@ -20,12 +20,16 @@ async def create_user(db: AsyncSession, users: user):
         raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST,
                             detail="Пользователь с таким email уже существует")
 
-    # Вставляем нового пользователя в базу данных
+    media_url = None
+    if file:
+        media_url = await save_media(file)
+
     await db.execute(insert(Users).values(
         name=users.name,
         surname=users.surname,
         email=users.email,
-        password=bcrypt_context.hash(users.password)
+        password=bcrypt_context.hash(users.password),
+        avatar=media_url
     ))
 
     await db.commit()

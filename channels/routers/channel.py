@@ -2,7 +2,7 @@ import redis.asyncio as redis
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
-from fastapi import APIRouter, Depends, status
+from fastapi import APIRouter, Depends, status, UploadFile
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.schemas.comment import comments
@@ -19,15 +19,16 @@ from users.services.permissions import is_autorization
 
 router = APIRouter(prefix="/channels", tags=["Channels"])
 
-@router.post("/", status_code=status.HTTP_201_CREATED, response_description="Создание нового канала")
+@router.post("/add", status_code=status.HTTP_201_CREATED, response_description="Создание нового канала")
 async def create_channel_route(
     channel: channels,
     db: AsyncSession = Depends(get_db),
-    user: dict = Depends(is_autorization)
+    user: dict = Depends(is_autorization),
+    # file: UploadFile = None
 ):
     return await create_channel(db, channel, user)
 
-@router.post("/posts", status_code=status.HTTP_201_CREATED, response_description="Добавить новый пост")
+@router.post("/posts/add", status_code=status.HTTP_201_CREATED, response_description="Добавить новый пост")
 async def create_post_route(post: post, db: AsyncSession = Depends(get_db)):
     return await new_post(db=db, post=post)
 

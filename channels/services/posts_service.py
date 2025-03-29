@@ -1,9 +1,10 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
+from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 from channels.models import Channel, Post, Subscription
 from channels.schemas.chanel import channels
 from channels.schemas.post import post
+from database import save_media
 from users.services.permissions import is_autorization
 from fastapi import HTTPException
 from sqlalchemy.future import select
@@ -12,9 +13,16 @@ from channels.models import Post, Subscription
 
 
 async def new_post(db: AsyncSession, post: post):
+    # media_url = None
+    # if file:
+    #     media_url = await save_media(file)
+
     await db.execute(insert(Post).values(
-            title=post.title, description=post.description,
-            channel_id=post.channel_id, media_url=post.media_url))
+        title=post.title,
+        description=post.description,
+        channel_id=post.channel_id,
+        # media_url=media_url,
+    ))
     await db.commit()
     return {"message": "Публикация была добавлена"}
 

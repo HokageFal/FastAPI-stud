@@ -4,10 +4,21 @@ from sqlalchemy.orm import sessionmaker
 from contextlib import asynccontextmanager
 import redis.asyncio as redis
 import time
-from fastapi import FastAPI
+from fastapi import FastAPI, UploadFile
 from fastapi_cache import FastAPICache
 from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
+import shutil
+import os
+
+UPLOAD_DIR = "media"
+os.makedirs(UPLOAD_DIR, exist_ok=True)
+
+async def save_media(file: UploadFile) -> str:
+    file_path = os.path.join(UPLOAD_DIR, file.filename)
+    with open(file_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    return file_path
 
 
 # Данные для подключения
