@@ -21,10 +21,11 @@ def generate_activation_code():
     return code
 
 def save_confirmation_code(email: str, code: str, expire_minutes: int = 10):
-    r.setex(f"Код подтверждения:{email}", timedelta(minutes=expire_minutes), code)
+    r.setex(f"Код подтверждения:{email}", expire_minutes * 60, code)
 
 def get_confirmation_code(email: str):
-    return r.get(f"Код подтверждения:{email}")
+    code = r.get(f"Код подтверждения:{email}")
+    return code.decode("utf-8") if code else None
 
 async def send_email(email: str, db: AsyncSession, user: dict):
     user = await db.scalar(select(Users).filter(Users.id==user["id"]))
@@ -69,7 +70,7 @@ async def verify_email(code: str, email: str, db: AsyncSession, user: dict):
         raise HTTPException(status_code=404, detail="Пользователь не найден")
 
     verify_code = get_confirmation_code(email)
-
+    print(verify_code)
     if not verify_code:
         raise HTTPException(status_code=404, detail="Код не найден")
 
@@ -79,5 +80,6 @@ async def verify_email(code: str, email: str, db: AsyncSession, user: dict):
         if user.email is None or user.email == "":
             user.email = email
         user.is_email_verified = True
-        return {"message": "Вы успешно подтвердили свою почту"}
+        await db.commit()
+    return {"message": "Вы успешно подтвердили свою почту"}
 
