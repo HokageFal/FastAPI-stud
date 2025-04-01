@@ -1,3 +1,5 @@
+import json
+
 from fastapi import FastAPI, WebSocket, Request, APIRouter
 from typing import List, Dict
 from fastapi import Depends
@@ -8,6 +10,11 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from database import get_db
 from users.models import Message
+import redis.asyncio as redis
+from fastapi_cache import FastAPICache
+from fastapi_cache.backends.redis import RedisBackend
+from database import r
+from fastapi.encoders import jsonable_encoder
 
 templates = Jinja2Templates(directory="templates")
 
@@ -33,11 +40,11 @@ manager = ConnectionManager()
 
 @router.websocket("/ws/{user_id}")
 async def websocket_service(
-    websocket: WebSocket,  # WebSocket должен быть первым параметром
+    websocket: WebSocket,
     user_id: int,
     db: AsyncSession = Depends(get_db)
 ):
-    # Правильный порядок аргументов: сначала websocket, потом user_id
+
     await manager.connect(websocket, user_id)
     try:
         while True:
@@ -66,6 +73,15 @@ def read_index(request: Request):
 
 @router.get("/messages/{user_id}")
 async def get_messages(user_id: int, db: AsyncSession = Depends(get_db)):
+    cache_data = r.get(f"messages{user_id}")
+    if cache_data:
+        return json.loads(cache_data)
+
     result = await db.scalars(select(Message).filter((Message.sender_id == user_id) |
                                                      (Message.recipient_id == user_id)))
-    return result.all()
+    messages = result.all()
+    messages_json = jsonable_encoder(messages)
+                                        #сек
+    r.setex(f"messages:{user_id}", 300, json.dumps(messages_json))
+
+    return messages_json
