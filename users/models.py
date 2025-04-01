@@ -19,3 +19,12 @@ class Users(Base):
     is_email_verified: Mapped[bool] = mapped_column(Boolean, default=False)  # Поле для подтверждения почты
 
     channels: Mapped[list["Channel"]] = relationship("Channel", back_populates="owner")
+
+class Message(Base):
+    __tablename__ = "message"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    sender_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+    recipient_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=True)
+    text: Mapped[str] = mapped_column(Text)
+    created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())

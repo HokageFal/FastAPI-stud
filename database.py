@@ -69,11 +69,10 @@ r = redis.Redis(
     host="localhost",
     port=6380,
     db=0,
-    username="root",
-    password=os.getenv("REDIS_PASSWORD"),
+    password="9898")
     # ssl=True,
     # ssl_cert_reqs=None
-)
+
 FastAPICache.init(RedisBackend(r), prefix="mycache")
 # Проверка подключения
 try:

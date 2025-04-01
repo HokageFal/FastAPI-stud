@@ -45,3 +45,4 @@ async def check_email(email: Email, db: AsyncSession = Depends(get_db), user: di
 @router.post("/verify_email")
 async def check_code_verify(request: Email,  db: AsyncSession = Depends(get_db), user: dict = Depends(is_autorization)):
     await verify_email(email=request.email, code=request.code, db=db, user=user)
+

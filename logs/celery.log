@@ -1,0 +1,838 @@
+[2025-03-30 16:47:53,863: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:47:53,878: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 16:47:53,879: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:47:53,883: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 16:47:54,903: INFO/MainProcess] mingle: all alone
+[2025-03-30 16:47:54,948: INFO/MainProcess] celery@ca70f968fc6c ready.
+[2025-03-30 16:47:58,481: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 16:50:50,727: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:50:50,856: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 16:50:50,869: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:50:50,918: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 16:50:52,013: INFO/MainProcess] mingle: all alone
+[2025-03-30 16:50:52,166: INFO/MainProcess] celery@ed8bc20f0d20 ready.
+[2025-03-30 16:50:54,094: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 16:52:12,207: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:52:12,229: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 16:52:12,232: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 16:52:12,238: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 16:52:13,260: INFO/MainProcess] mingle: all alone
+[2025-03-30 16:52:13,280: INFO/MainProcess] celery@ed8bc20f0d20 ready.
+[2025-03-30 16:52:17,529: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 17:55:11,652: ERROR/MainProcess] Received unregistered task of type 'worker.add_numbers'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[1, 2], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (81b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'worker.add_numbers', 'id': '64b07db2-8462-4505-a176-a4e97a8776d2', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '64b07db2-8462-4505-a176-a4e97a8776d2', 'parent_id': None, 'argsrepr': '(1, 2)', 'kwargsrepr': '{}', 'origin': 'gen10@4ffd8af21379', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 659, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'worker.add_numbers'
+[2025-03-30 17:55:47,516: ERROR/MainProcess] Received unregistered task of type 'worker.add_numbers'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[1, 2], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (81b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'worker.add_numbers', 'id': '6ec5f78b-3a5a-4557-a89e-a9fca34bcaf3', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': '6ec5f78b-3a5a-4557-a89e-a9fca34bcaf3', 'parent_id': None, 'argsrepr': '(1, 2)', 'kwargsrepr': '{}', 'origin': 'gen10@4ffd8af21379', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 659, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'worker.add_numbers'
+[2025-03-30 17:55:48,484: ERROR/MainProcess] Received unregistered task of type 'worker.add_numbers'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[1, 2], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (81b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'worker.add_numbers', 'id': 'c00e8e34-a825-4a20-9580-38c3541c1fc1', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'c00e8e34-a825-4a20-9580-38c3541c1fc1', 'parent_id': None, 'argsrepr': '(1, 2)', 'kwargsrepr': '{}', 'origin': 'gen10@4ffd8af21379', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 659, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'worker.add_numbers'
+[2025-03-30 17:55:49,155: ERROR/MainProcess] Received unregistered task of type 'worker.add_numbers'.
+The message has been ignored and discarded.
+
+Did you remember to import the module containing this task?
+Or maybe you're using relative imports?
+
+Please see
+https://docs.celeryq.dev/en/latest/internals/protocol.html
+for more information.
+
+The full contents of the message body was:
+b'[[1, 2], {}, {"callbacks": null, "errbacks": null, "chain": null, "chord": null}]' (81b)
+
+The full contents of the message headers:
+{'lang': 'py', 'task': 'worker.add_numbers', 'id': 'ed6e3951-773a-48f1-81f7-78eb062ec9f4', 'shadow': None, 'eta': None, 'expires': None, 'group': None, 'group_index': None, 'retries': 0, 'timelimit': [None, None], 'root_id': 'ed6e3951-773a-48f1-81f7-78eb062ec9f4', 'parent_id': None, 'argsrepr': '(1, 2)', 'kwargsrepr': '{}', 'origin': 'gen10@4ffd8af21379', 'ignore_result': False, 'replaced_task_nesting': 0, 'stamped_headers': None, 'stamps': {}}
+
+The delivery info for this task is:
+{'exchange': '', 'routing_key': 'celery'}
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 659, in on_task_received
+    strategy = strategies[type_]
+               ~~~~~~~~~~^^^^^^^
+KeyError: 'worker.add_numbers'
+[2025-03-30 19:39:43,575: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:39:43,593: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 19:39:43,594: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:39:43,600: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 19:39:44,615: INFO/MainProcess] mingle: all alone
+[2025-03-30 19:39:44,632: INFO/MainProcess] celery@f4566332d3da ready.
+[2025-03-30 19:39:48,100: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 19:41:49,994: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:41:50,250: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 19:41:50,271: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:41:50,296: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 19:41:51,379: INFO/MainProcess] mingle: all alone
+[2025-03-30 19:41:51,461: INFO/MainProcess] celery@081112fe9d3b ready.
+[2025-03-30 19:41:52,980: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 19:56:00,990: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:56:01,120: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 19:56:01,133: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 19:56:01,146: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 19:56:02,218: INFO/MainProcess] mingle: all alone
+[2025-03-30 19:56:02,266: INFO/MainProcess] celery@29cca87d9962 ready.
+[2025-03-30 19:56:04,199: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 20:00:06,924: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:00:07,040: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 20:00:07,049: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:00:07,057: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:00:07,105: CRITICAL/MainProcess] Unrecoverable error: OperationalError('No permissions to access a channel')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 556, in _ensured
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 214, in _publish
+    return channel.basic_publish(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/base.py", line 610, in basic_publish
+    return self.typeof(exchange).deliver(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/exchange.py", line 155, in deliver
+    self.channel._put_fanout(
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 1029, in _put_fanout
+    client.publish(
+  File "/usr/local/lib/python3.11/site-packages/redis/commands/core.py", line 5148, in publish
+    return self.execute_command("PUBLISH", channel, message, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1269, in execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1270, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1246, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1286, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 905, in read_response
+    raise response
+redis.exceptions.NoPermissionError: No permissions to access a channel
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 37, in start
+    self.sync(c)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 41, in sync
+    replies = self.send_hello(c)
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 54, in send_hello
+    replies = inspect.hello(c.hostname, our_revoked._data) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 389, in hello
+    return self._request('hello', from_node=from_node, revoked=revoked)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 106, in _request
+    return self._prepare(self.app.control.broadcast(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 776, in broadcast
+    return self.mailbox(conn)._broadcast(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 337, in _broadcast
+    self._publish(command, arguments, destination=destination,
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 305, in _publish
+    producer.publish(
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 190, in publish
+    return _publish(
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 553, in _ensured
+    with self._reraise_as_library_errors():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: No permissions to access a channel
+[2025-03-30 20:00:18,672: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:00:18,790: INFO/MainProcess] Connected to redis://redis:6379/0
+[2025-03-30 20:00:18,820: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:00:18,835: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:00:18,924: CRITICAL/MainProcess] Unrecoverable error: OperationalError('No permissions to access a channel')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 556, in _ensured
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 214, in _publish
+    return channel.basic_publish(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/base.py", line 610, in basic_publish
+    return self.typeof(exchange).deliver(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/exchange.py", line 155, in deliver
+    self.channel._put_fanout(
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 1029, in _put_fanout
+    client.publish(
+  File "/usr/local/lib/python3.11/site-packages/redis/commands/core.py", line 5148, in publish
+    return self.execute_command("PUBLISH", channel, message, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1269, in execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1270, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1246, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1286, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 905, in read_response
+    raise response
+redis.exceptions.NoPermissionError: No permissions to access a channel
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 37, in start
+    self.sync(c)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 41, in sync
+    replies = self.send_hello(c)
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 54, in send_hello
+    replies = inspect.hello(c.hostname, our_revoked._data) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 389, in hello
+    return self._request('hello', from_node=from_node, revoked=revoked)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 106, in _request
+    return self._prepare(self.app.control.broadcast(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 776, in broadcast
+    return self.mailbox(conn)._broadcast(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 337, in _broadcast
+    self._publish(command, arguments, destination=destination,
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 305, in _publish
+    producer.publish(
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 190, in publish
+    return _publish(
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 553, in _ensured
+    with self._reraise_as_library_errors():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: No permissions to access a channel
+[2025-03-30 20:03:02,762: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:03:02,821: INFO/MainProcess] Connected to redis://root:**@redis:6379/0
+[2025-03-30 20:03:02,825: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:03:02,839: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:03:02,888: CRITICAL/MainProcess] Unrecoverable error: OperationalError('No permissions to access a channel')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 556, in _ensured
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 214, in _publish
+    return channel.basic_publish(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/base.py", line 610, in basic_publish
+    return self.typeof(exchange).deliver(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/exchange.py", line 155, in deliver
+    self.channel._put_fanout(
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 1029, in _put_fanout
+    client.publish(
+  File "/usr/local/lib/python3.11/site-packages/redis/commands/core.py", line 5148, in publish
+    return self.execute_command("PUBLISH", channel, message, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1269, in execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1270, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1246, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1286, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 905, in read_response
+    raise response
+redis.exceptions.NoPermissionError: No permissions to access a channel
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 37, in start
+    self.sync(c)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 41, in sync
+    replies = self.send_hello(c)
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 54, in send_hello
+    replies = inspect.hello(c.hostname, our_revoked._data) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 389, in hello
+    return self._request('hello', from_node=from_node, revoked=revoked)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 106, in _request
+    return self._prepare(self.app.control.broadcast(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 776, in broadcast
+    return self.mailbox(conn)._broadcast(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 337, in _broadcast
+    self._publish(command, arguments, destination=destination,
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 305, in _publish
+    producer.publish(
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 190, in publish
+    return _publish(
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 553, in _ensured
+    with self._reraise_as_library_errors():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: No permissions to access a channel
+[2025-03-30 20:04:09,747: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:04:10,239: INFO/MainProcess] Connected to redis://root:**@redis:6379/0
+[2025-03-30 20:04:10,325: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:04:10,385: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:04:10,592: CRITICAL/MainProcess] Unrecoverable error: OperationalError('No permissions to access a channel')
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 472, in _reraise_as_library_errors
+    yield
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 556, in _ensured
+    return fun(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 214, in _publish
+    return channel.basic_publish(
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/base.py", line 610, in basic_publish
+    return self.typeof(exchange).deliver(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/virtual/exchange.py", line 155, in deliver
+    self.channel._put_fanout(
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 1029, in _put_fanout
+    client.publish(
+  File "/usr/local/lib/python3.11/site-packages/redis/commands/core.py", line 5148, in publish
+    return self.execute_command("PUBLISH", channel, message, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1269, in execute_command
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1270, in <lambda>
+    lambda: self._send_command_parse_response(
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1246, in _send_command_parse_response
+    return self.parse_response(conn, command_name, **options)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1286, in parse_response
+    response = connection.read_response()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 905, in read_response
+    raise response
+redis.exceptions.NoPermissionError: No permissions to access a channel
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/worker.py", line 202, in start
+    self.blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 365, in start
+    return self.obj.start()
+           ^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 37, in start
+    self.sync(c)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 41, in sync
+    replies = self.send_hello(c)
+              ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/mingle.py", line 54, in send_hello
+    replies = inspect.hello(c.hostname, our_revoked._data) or {}
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 389, in hello
+    return self._request('hello', from_node=from_node, revoked=revoked)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 106, in _request
+    return self._prepare(self.app.control.broadcast(
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/celery/app/control.py", line 776, in broadcast
+    return self.mailbox(conn)._broadcast(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 337, in _broadcast
+    self._publish(command, arguments, destination=destination,
+  File "/usr/local/lib/python3.11/site-packages/kombu/pidbox.py", line 305, in _publish
+    producer.publish(
+  File "/usr/local/lib/python3.11/site-packages/kombu/messaging.py", line 190, in publish
+    return _publish(
+           ^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 553, in _ensured
+    with self._reraise_as_library_errors():
+  File "/usr/local/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/usr/local/lib/python3.11/site-packages/kombu/connection.py", line 476, in _reraise_as_library_errors
+    raise ConnectionError(str(exc)) from exc
+kombu.exceptions.OperationalError: No permissions to access a channel
+[2025-03-30 20:12:50,486: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:12:50,526: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-03-30 20:12:52,530: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 4.00 seconds... (2/100)
+
+[2025-03-30 20:12:56,539: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 6.00 seconds... (3/100)
+
+[2025-03-30 20:13:02,545: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 8.00 seconds... (4/100)
+
+[2025-03-30 20:13:10,550: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 10.00 seconds... (5/100)
+
+[2025-03-30 20:13:20,556: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 12.00 seconds... (6/100)
+
+[2025-03-30 20:13:32,568: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 14.00 seconds... (7/100)
+
+[2025-03-30 20:13:46,574: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 16.00 seconds... (8/100)
+
+[2025-03-30 20:14:02,624: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 18.00 seconds... (9/100)
+
+[2025-03-30 20:14:20,636: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 20.00 seconds... (10/100)
+
+[2025-03-30 20:14:40,652: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 22.00 seconds... (11/100)
+
+[2025-03-30 20:15:02,673: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 24.00 seconds... (12/100)
+
+[2025-03-30 20:15:26,693: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 26.00 seconds... (13/100)
+
+[2025-03-30 20:15:46,122: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:15:46,158: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 2.00 seconds... (1/100)
+
+[2025-03-30 20:15:48,163: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 4.00 seconds... (2/100)
+
+[2025-03-30 20:15:52,168: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 6.00 seconds... (3/100)
+
+[2025-03-30 20:15:58,175: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 8.00 seconds... (4/100)
+
+[2025-03-30 20:16:06,397: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 10.00 seconds... (5/100)
+
+[2025-03-30 20:16:16,413: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 12.00 seconds... (6/100)
+
+[2025-03-30 20:16:28,416: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 14.00 seconds... (7/100)
+
+[2025-03-30 20:16:42,422: ERROR/MainProcess] consumer: Cannot connect to redis://root:**@redis:6379/0: invalid username-password pair or user is disabled..
+Trying again in 16.00 seconds... (8/100)
+
+[2025-03-30 20:17:00,712: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:17:00,748: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-30 20:17:00,750: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:17:00,761: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:17:01,790: INFO/MainProcess] mingle: all alone
+[2025-03-30 20:17:01,827: INFO/MainProcess] celery@f1841dec115b ready.
+[2025-03-30 20:17:05,824: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-30 20:21:58,236: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:21:58,341: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-30 20:21:58,391: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-30 20:21:58,433: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-30 20:21:59,490: INFO/MainProcess] mingle: all alone
+[2025-03-30 20:21:59,539: INFO/MainProcess] celery@f1841dec115b ready.
+[2025-03-30 20:22:03,321: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-31 10:07:56,533: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:07:56,549: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-31 10:07:56,552: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:07:56,555: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-31 10:07:57,570: INFO/MainProcess] mingle: all alone
+[2025-03-31 10:07:57,606: INFO/MainProcess] celery@f1841dec115b ready.
+[2025-03-31 10:08:01,024: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-31 10:23:53,938: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:23:53,952: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-31 10:23:53,954: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:23:53,958: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-31 10:23:54,975: INFO/MainProcess] mingle: all alone
+[2025-03-31 10:23:54,995: INFO/MainProcess] celery@2962820047a9 ready.
+[2025-03-31 10:23:59,166: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-31 10:27:17,122: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:27:17,158: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-31 10:27:17,172: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 10:27:17,190: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-31 10:27:18,224: INFO/MainProcess] mingle: all alone
+[2025-03-31 10:27:18,328: INFO/MainProcess] celery@21b4a47aa29b ready.
+[2025-03-31 10:27:22,253: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-31 10:48:14,773: WARNING/MainProcess] consumer: Connection to broker lost. Trying to re-establish the connection...
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 340, in start
+    blueprint.start(self)
+  File "/usr/local/lib/python3.11/site-packages/celery/bootsteps.py", line 116, in start
+    step.start(parent)
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py", line 746, in start
+    c.loop(*c.loop_args())
+  File "/usr/local/lib/python3.11/site-packages/celery/worker/loops.py", line 97, in asynloop
+    next(loop)
+  File "/usr/local/lib/python3.11/site-packages/kombu/asynchronous/hub.py", line 373, in create_loop
+    cb(*cbargs)
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 1352, in on_readable
+    self.cycle.on_readable(fileno)
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 569, in on_readable
+    chan.handlers[type]()
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 918, in _receive
+    ret.append(self._receive_one(c))
+               ^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/kombu/transport/redis.py", line 928, in _receive_one
+    response = c.parse_response()
+               ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1542, in parse_response
+    response = self._execute(conn, try_read)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1518, in _execute
+    return conn.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 49, in call_with_retry
+    fail(error)
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1520, in <lambda>
+    lambda error: self._disconnect_raise_connect(conn, error),
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1507, in _disconnect_raise_connect
+    raise error
+  File "/usr/local/lib/python3.11/site-packages/redis/retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1519, in <lambda>
+    lambda: command(*args, **kwargs),
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/client.py", line 1540, in try_read
+    return conn.read_response(disconnect_on_error=False)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 882, in read_response
+    response = self._parser.read_response(disable_decoding=disable_decoding)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 349, in read_response
+    result = self._read_response(disable_decoding=disable_decoding)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 359, in _read_response
+    raw = self._buffer.readline()
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 262, in readline
+    self._read_from_socket()
+  File "/usr/local/lib/python3.11/site-packages/redis/connection.py", line 215, in _read_from_socket
+    raise ConnectionError(SERVER_CLOSED_CONNECTION_ERROR)
+redis.exceptions.ConnectionError: Connection closed by server.
+[2025-03-31 15:40:26,860: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 15:40:26,905: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-31 15:40:26,907: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 15:40:26,912: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-31 15:40:27,931: INFO/MainProcess] mingle: all alone
+[2025-03-31 15:40:27,948: INFO/MainProcess] celery@21b4a47aa29b ready.
+[2025-03-31 15:40:31,243: INFO/MainProcess] Events of group {task} enabled by remote.
+[2025-03-31 15:57:19,104: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 15:57:19,156: INFO/MainProcess] Connected to redis://:**@redis:6379/0
+[2025-03-31 15:57:19,161: WARNING/MainProcess] /usr/local/lib/python3.11/site-packages/celery/worker/consumer/consumer.py:508: CPendingDeprecationWarning: The broker_connection_retry configuration setting will no longer determine
+whether broker connection retries are made during startup in Celery 6.0 and above.
+If you wish to retain the existing behavior for retrying connections on startup,
+you should set broker_connection_retry_on_startup to True.
+  warnings.warn(
+
+[2025-03-31 15:57:19,169: INFO/MainProcess] mingle: searching for neighbors
+[2025-03-31 15:57:20,200: INFO/MainProcess] mingle: all alone
+[2025-03-31 15:57:20,226: INFO/MainProcess] celery@21b4a47aa29b ready.
+[2025-03-31 15:57:23,464: INFO/MainProcess] Events of group {task} enabled by remote.

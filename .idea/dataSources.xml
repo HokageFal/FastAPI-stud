@@ -8,7 +8,7 @@
       <jdbc-url>jdbc:mysql://localhost:3306/alembic_async</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
-    <data-source source="LOCAL" name="0@localhost" uuid="3e898126-1649-4a32-8bca-30762690148a">
+    <data-source source="LOCAL" name="0@localhost" uuid="c6585279-119f-40e4-b112-2fdd0f73e519">
       <driver-ref>redis</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>jdbc.RedisDriver</jdbc-driver>
