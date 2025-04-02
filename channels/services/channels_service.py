@@ -1,11 +1,12 @@
 from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
 from sqlalchemy import select, insert, func
 from sqlalchemy.ext.asyncio import AsyncSession
-
+from users.models import Users
 from channels.models import Channel, Post, Subscription
 from channels.schemas.chanel import channels
 from channels.schemas.subscribe import subsribes
 from database import save_media
+from users.services.email_tasks import channel_send_email
 from users.services.permissions import is_autorization
 
 async def create_channel(db: AsyncSession, channel: channels, user: dict):
@@ -15,6 +16,10 @@ async def create_channel(db: AsyncSession, channel: channels, user: dict):
 
     await db.execute(insert(Channel).values(name=channel.name, description=channel.description, owner_id=user["id"]))
     await db.commit()
+
+    user = await db.scalar(select(Users).filter(Users.id==user["id"]))
+    print(user.email)
+    channel_send_email.delay(user.email, channel.name)
 
     return {"message": "Успешно создан канал"}
 
