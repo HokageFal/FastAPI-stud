@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
+from fastapi import status, HTTPException, Response, Request, UploadFile
 from sqlalchemy import select, insert
 from passlib.context import CryptContext
 from sqlalchemy.ext.asyncio import AsyncSession

@@ -1,9 +1,8 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
-from sqlalchemy import select, insert, func
+from fastapi import HTTPException
+from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.models import Comment
-from channels.schemas.chanel import channels
 from channels.schemas.comment import comments
 
 

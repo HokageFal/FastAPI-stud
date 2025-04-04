@@ -1,6 +1,6 @@
 import json
-from fastapi import FastAPI, WebSocket, Request, APIRouter
-from typing import List, Dict
+from fastapi import WebSocket, Request, APIRouter
+from typing import Dict
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import insert, select
@@ -9,9 +9,6 @@ from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from database import get_db
 from users.models import Message
-import redis.asyncio as redis
-from fastapi_cache import FastAPICache
-from fastapi_cache.backends.redis import RedisBackend
 from database import r
 from fastapi.encoders import jsonable_encoder
 

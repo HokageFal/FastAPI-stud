@@ -1,8 +1,5 @@
-import redis.asyncio as redis
-from fastapi_cache import FastAPICache
-from fastapi_cache.backends.redis import RedisBackend
 from fastapi_cache.decorator import cache
-from fastapi import APIRouter, Depends, status, UploadFile
+from fastapi import APIRouter, Depends, status
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from channels.schemas.comment import comments
@@ -12,7 +9,6 @@ from channels.services.likes_service import add_like, get_like
 from channels.services.posts_service import new_post, all_post, get_post, post_to_channel, subs_posts
 from database import get_db
 
-from channels.models import Channel
 from channels.schemas.chanel import channels
 from channels.schemas.post import post
 from users.services.permissions import is_autorization

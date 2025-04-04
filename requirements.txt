@@ -19,3 +19,4 @@ PyJWT==2.10.1
 passlib==1.7.4
 SQLAlchemy==2.0.38
 Jinja2==3.1.6
+asyncpg==0.30.0

@@ -12,3 +12,5 @@ celery = Celery(__name__, broker=BROKER_URL, backend=RESULT_BACKEND)
 @celery.task
 def create_channel_celery(a, b):
     return a + b
+
+celery.conf.broker_connection_retry_on_startup = True

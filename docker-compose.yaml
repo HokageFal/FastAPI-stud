@@ -16,60 +16,61 @@ services:
       timeout: 10s
       retries: 5
     restart: unless-stopped
-    tty: true
-    stdin_open: true
-    command: redis-server --requirepass 9898
+    command: redis-server --requirepass 9898  # Включаем защиту с паролем
 
-  mysql:
-    image: mysql:8.0
-    container_name: mysql_container
+  postgres:
+    image: postgres:17
+    container_name: postgres_container
     environment:
-      - MYSQL_ROOT_PASSWORD=9898
-      - MYSQL_DATABASE=alembic_async
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=9898
+      - POSTGRES_DB=alembic_async
     ports:
-      - "3307:3306"
-    networks:
-      - my_network
+      - "5433:5432"
     volumes:
-      - ./mysql_data:/var/lib/mysql
+      - ./postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     restart: unless-stopped
 
   celery:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
     container_name: celery_container
     depends_on:
       redis:
         condition: service_healthy
+      postgres:
+        condition: service_healthy
     environment:
       - CELERY_BROKER_URL=redis://:9898@redis:6379/0
       - CELERY_RESULT_BACKEND=redis://:9898@redis:6379/0
+      - DATABASE_URL=postgresql+asyncpg://postgres:9898@postgres:5432/alembic_async
     restart: unless-stopped
-    tty: true
-    stdin_open: true
     volumes:
-      - .:/app
-    command: celery -A celery worker -l info
+      - .:/code
+    command: celery -A celery_app worker -l info
 
   fastapi:
-    build:
-      context: .  # Контекст для сборки (путь к текущей папке)
-      dockerfile: Dockerfile  # Путь к файлу Dockerfile
+    build: .
     container_name: fastapi_container
     ports:
       - "8000:8000"
     environment:
-      - DATABASE_URL=mysql+aiomysql://root:9898@mysql:3306/alembic_async
+      - DATABASE_URL=postgresql+asyncpg://postgres:9898@postgres:5432/alembic_async
+      - REDIS_URL=redis://:9898@redis:6379/0
     depends_on:
-      - redis
-      - mysql
-    networks:
-      - my_network
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
     volumes:
-      - .:/usr/src/app
-    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+      - .:/code
+    restart: unless-stopped
 
 networks:
-  my_network:
+  default:
+    name: my_network
     driver: bridge

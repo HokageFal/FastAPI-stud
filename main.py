@@ -1,13 +1,16 @@
 from fastapi import FastAPI, WebSocket, Request
-from database import init_db
 from users.routers.user import router as users_router
 from channels.routers.channel import router as channels_router
 from starlette.websockets import WebSocketDisconnect
 from fastapi.templating import Jinja2Templates
 from fastapi.responses import HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
-from users.services.message_websockets import router as websocket_router
+from users.routers.user import router as websocket_router
 app = FastAPI()
+
+@app.get("/health")
+def health_check():
+    return {"status": "ok"}
 
 app.add_middleware(
     CORSMiddleware,

@@ -1,14 +1,12 @@
 import uuid
-from datetime import timedelta
 import os
-from pydantic import EmailStr
 from database import r
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from sqlalchemy.ext.asyncio import AsyncSession
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request
+from fastapi import HTTPException
 from users.models import Users
-from sqlalchemy import select, insert
+from sqlalchemy import select
 import smtplib
 
 EMAIL = os.getenv("SENDER_EMAIL")

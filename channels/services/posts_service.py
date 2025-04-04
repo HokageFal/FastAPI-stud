@@ -1,11 +1,5 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
 from sqlalchemy import select, insert
-from sqlalchemy.ext.asyncio import AsyncSession
-from channels.models import Channel, Post, Subscription
-from channels.schemas.chanel import channels
 from channels.schemas.post import post
-from database import save_media
-from users.services.permissions import is_autorization
 from fastapi import HTTPException
 from sqlalchemy.future import select
 from sqlalchemy.ext.asyncio import AsyncSession

@@ -1,13 +1,11 @@
-from fastapi import APIRouter, Depends, status, HTTPException, Response, Request, UploadFile
+from fastapi import HTTPException
 from sqlalchemy import select, insert, func
 from sqlalchemy.ext.asyncio import AsyncSession
 from users.models import Users
-from channels.models import Channel, Post, Subscription
+from channels.models import Channel, Subscription
 from channels.schemas.chanel import channels
-from channels.schemas.subscribe import subsribes
-from database import save_media
 from users.services.email_tasks import channel_send_email
-from users.services.permissions import is_autorization
+
 
 async def create_channel(db: AsyncSession, channel: channels, user: dict):
     # media_url = None

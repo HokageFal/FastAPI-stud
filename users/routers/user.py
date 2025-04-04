@@ -1,12 +1,11 @@
-from fastapi import APIRouter, Depends, Response, Request, HTTPException, status
+from fastapi import APIRouter, Depends, Response, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from database import get_db
-from users.schemas.user import user, user_response
+from users.schemas.user import user
 from users.services.email_service import send_email, verify_email
 from users.services.permissions import is_autorization
 from users.services.user_service import create_user, user_login, update_access, user_view, user_logout
-from typing import List, Any
-from pydantic import EmailStr
+from typing import Any
 from users.schemas.user import Email
 
 router = APIRouter(prefix="/users", tags=["User"])

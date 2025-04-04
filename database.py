@@ -22,14 +22,14 @@ async def save_media(file: UploadFile) -> str:
 
 
 # Данные для подключения
-MYSQL_USER = "root"
-MYSQL_PASSWORD = "9898"
-MYSQL_HOST = "localhost"
-MYSQL_PORT = "3306"
-MYSQL_DATABASE = "alembic_async"
+POSTGRES_USER = "postgres"
+POSTGRES_PASSWORD = "9898"
+POSTGRES_HOST = "postgres"
+POSTGRES_PORT = "5432"
+POSTGRES_DATABASE = "alembic_async"
 
 # URL для асинхронного подключения
-DATABASE_URL = f"mysql+aiomysql://{MYSQL_USER}:{MYSQL_PASSWORD}@{MYSQL_HOST}:{MYSQL_PORT}/{MYSQL_DATABASE}"
+DATABASE_URL = f"postgresql+asyncpg://{POSTGRES_USER}:{POSTGRES_PASSWORD}@{POSTGRES_HOST}:{POSTGRES_PORT}/{POSTGRES_DATABASE}"
 
 # Создаем асинхронный движок SQLAlchemy
 engine = create_async_engine(DATABASE_URL, echo=True)
