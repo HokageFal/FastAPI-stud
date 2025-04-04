@@ -13,7 +13,9 @@ class Channel(Base):
     description: Mapped[str] = mapped_column(Text)
     register_data: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow())
     owner_id: Mapped[int] = mapped_column(Integer, ForeignKey("users.id"), nullable=False)
+
     owner: Mapped["users"] = relationship("Users", back_populates="channels")
+
     posts: Mapped[list["Post"]] = relationship("Post", back_populates="channel")
 
 class Post(Base):
