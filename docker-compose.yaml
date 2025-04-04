@@ -48,6 +48,7 @@ services:
       - CELERY_BROKER_URL=redis://:9898@redis:6379/0
       - CELERY_RESULT_BACKEND=redis://:9898@redis:6379/0
       - DATABASE_URL=postgresql+asyncpg://postgres:9898@postgres:5432/alembic_async
+      - PYTHONPATH=/code
     restart: unless-stopped
     volumes:
       - .:/code

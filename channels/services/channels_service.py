@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from users.models import Users
 from channels.models import Channel, Subscription
 from channels.schemas.chanel import channels
-from users.services.email_tasks import channel_send_email
+from celery_app import channel_send_email
 
 
 async def create_channel(db: AsyncSession, channel: channels, user: dict):

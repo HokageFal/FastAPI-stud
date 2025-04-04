@@ -66,8 +66,8 @@ import redis
 
 # Подключение к Redis
 r = redis.Redis(
-    host="localhost",
-    port=6380,
+    host="redis",
+    port=6379,
     db=0,
     password="9898")
     # ssl=True,
