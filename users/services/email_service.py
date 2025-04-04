@@ -14,6 +14,23 @@ PASSWORD = os.getenv("SMTP_PASSWORD")
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
+def send_email(email: str, subject: str, body: str):
+    msg = MIMEMultipart()
+    msg['From'] = EMAIL
+    msg['To'] = email
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain'))
+    try:
+        # Настройка SMTP сервера
+        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+        server.starttls()  # Защищённое соединение
+        server.login(EMAIL, PASSWORD)  # Логин в аккаунт
+        server.sendmail(EMAIL, email, msg.as_string())  # Отправка письма
+        server.quit()  # Завершаем сессию
+        print(f"Email отправлен на {email}")
+    except Exception as e:
+        print(f"Ошибка при отправке письма: {e}")
+
 def generate_activation_code():
     code = str(uuid.uuid4().int)[:6]  # Генерируем 6-значный код
     return code
@@ -25,7 +42,7 @@ def get_confirmation_code(email: str):
     code = r.get(f"Код подтверждения:{email}")
     return code.decode("utf-8") if code else None
 
-async def send_email(email: str, db: AsyncSession, user: dict):
+async def code_send_email(email: str, db: AsyncSession, user: dict):
     user = await db.scalar(select(Users).filter(Users.id==user["id"]))
 
     if not user:
@@ -44,22 +61,7 @@ async def send_email(email: str, db: AsyncSession, user: dict):
     subject = "Ваш код подтверждения"
     body = f"Здравствуйте!\n\nВаш код подтверждения: {code}\n\nС уважением, команда!"
 
-    msg = MIMEMultipart()
-    msg['From'] = EMAIL
-    msg['To'] = email
-    msg['Subject'] = subject
-    msg.attach(MIMEText(body, 'plain'))
-
-    try:
-        # Настройка SMTP сервера
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
-        server.starttls()  # Защищённое соединение
-        server.login(EMAIL, PASSWORD)  # Логин в аккаунт
-        server.sendmail(EMAIL, email, msg.as_string())  # Отправка письма
-        server.quit()  # Завершаем сессию
-        print(f"Email отправлен на {email}")
-    except Exception as e:
-        print(f"Ошибка при отправке письма: {e}")
+    return send_email(email, subject, body)
 
 async def verify_email(code: str, email: str, db: AsyncSession, user: dict):
     user = await db.scalar(select(Users).filter(Users.id==user["id"]))
@@ -80,4 +82,3 @@ async def verify_email(code: str, email: str, db: AsyncSession, user: dict):
         user.is_email_verified = True
         await db.commit()
     return {"message": "Вы успешно подтвердили свою почту"}
-

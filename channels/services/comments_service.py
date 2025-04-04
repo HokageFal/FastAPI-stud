@@ -2,11 +2,23 @@ from fastapi import HTTPException
 from sqlalchemy import select, insert
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from channels.models import Comment
+from channels.models import Comment, Post, Channel
 from channels.schemas.comment import comments
+from celery_app import comments_send_email
+
+from users.models import Users
 
 
 async def add_comment(db: AsyncSession, post_id: int, user: dict, comment: comments):
+    post = await db.scalars(select(Post).filter(Post.id == post_id))
+    post = post.first()
+    channel = await db.scalars(select(Channel).filter(Channel.id == post.channel_id))
+    channel = channel.first()
+    owner = await db.scalars(select(Users).filter(Users.id==channel.owner_id))
+    owner = owner.first()
+    user_name = await db.scalars(select(Users).filter(Users.id == user["id"]))
+    user_name = user_name.first()
+    comments_send_email.delay(email=owner.email, user_name=user_name.name, post_name=post.title, comment=comment.comment)
     await db.execute(insert(Comment).values(comment=comment.comment, post_id=post_id, parent_id=comment.parent_id, user_id=user["id"]))
     await db.commit()
 

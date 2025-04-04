@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Response, Request
 from sqlalchemy.ext.asyncio import AsyncSession
 from database import get_db
 from users.schemas.user import user
-from users.services.email_service import send_email, verify_email
+from users.services.email_service import send_email, verify_email, code_send_email
 from users.services.permissions import is_autorization
 from users.services.user_service import create_user, user_login, update_access, user_view, user_logout
 from typing import Any
@@ -38,7 +38,7 @@ async def logout(response: Response):
 
 @router.post("/send_email")
 async def check_email(email: Email, db: AsyncSession = Depends(get_db), user: dict = Depends(is_autorization)):
-    await send_email(email=email.email, db=db, user=user)
+    await code_send_email(email=email.email, db=db, user=user)
     return {"message": "Email с кодом подтверждения отправлен успешно!"}
 
 @router.post("/verify_email")

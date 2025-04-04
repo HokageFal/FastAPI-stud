@@ -54,6 +54,23 @@ services:
       - .:/code
     command: celery -A celery_app worker -l info
 
+  flower:
+    build: .
+    container_name: flower_container
+    depends_on:
+      redis:
+        condition: service_healthy
+      celery:
+        condition: service_started
+    environment:
+      - CELERY_BROKER_URL=redis://:9898@redis:6379/0
+      - PYTHONPATH=/code
+    ports:
+      - "5555:5555"
+    volumes:
+      - .:/code
+    command: celery -A celery_app flower --port=5555
+
   fastapi:
     build: .
     container_name: fastapi_container
